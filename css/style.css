@@ -1007,80 +1007,134 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Hero Section */
     .hero {
-        padding-top: 100px;
-        min-height: auto;
-        padding-bottom: 60px;
+        padding-top: 90px;
+        min-height: 100vh;
+        padding-bottom: 40px;
+        display: flex;
+        align-items: center;
     }
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
         text-align: center;
+        width: 100%;
     }
 
     .hero-title {
-        font-size: 2.5rem;
-        line-height: 1.2;
-        margin-bottom: 20px;
+        font-size: 2.25rem;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        padding: 0 10px;
     }
 
     .hero-subtitle {
-        font-size: 1.125rem;
-        margin-bottom: 30px;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 24px;
+        padding: 0 10px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-stats {
-        justify-content: center;
-        gap: 20px;
-        margin-bottom: 30px;
+        justify-content: space-around;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding: 0 20px;
+    }
+
+    .stat-item {
+        flex: 1;
+        min-width: 80px;
     }
 
     .stat-number {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        line-height: 1.2;
     }
 
     .hero-actions {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
-        margin-bottom: 40px;
+        gap: 12px;
+        margin-bottom: 30px;
+        padding: 0 20px;
     }
 
     .btn-large {
         width: 100%;
-        max-width: 280px;
+        max-width: 260px;
         justify-content: center;
+        padding: 14px 24px;
+        font-size: 16px;
     }
 
     .trust-indicators {
-        margin-top: 20px;
+        margin-top: 16px;
+        padding: 0 20px;
+    }
+
+    .trust-text {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
     }
 
     .trust-logos {
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 12px;
         justify-content: center;
+    }
+
+    .trust-logos img {
+        height: 24px;
     }
 
     /* Hero Visual */
     .hero-visual {
-        margin-top: 40px;
+        margin-top: 20px;
+        padding: 0 10px;
     }
 
     .design-showcase {
         height: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
     }
 
     .showcase-card {
         position: relative !important;
         width: 100% !important;
-        height: 200px !important;
+        height: 180px !important;
         margin: 0 !important;
         top: auto !important;
         left: auto !important;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .showcase-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-overlay {
+        padding: 12px 16px;
+    }
+
+    .card-tag {
+        font-size: 0.8rem;
     }
 
     .upload-demo {
@@ -1088,26 +1142,72 @@ h1, h2, h3, h4, h5, h6 {
         bottom: auto;
         right: auto;
         width: 100%;
-        margin-top: 30px;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    .upload-area {
+        padding: 30px 20px;
+        margin-bottom: 16px;
+    }
+
+    .upload-area i {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+    }
+
+    .upload-area span {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
     }
 
     /* Sections */
     .section-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 12px;
+        padding: 0 10px;
     }
 
     .section-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        padding: 0 15px;
+        max-width: 95%;
+        margin: 0 auto 40px;
     }
 
     /* Features */
+    .features {
+        padding: 60px 0;
+    }
+
     .features-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
     }
 
     .feature-card {
-        padding: 30px 20px;
+        padding: 24px 20px;
+        margin: 0 10px;
+        border-radius: 16px;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+
+    .feature-title {
+        font-size: 1.125rem;
+        margin-bottom: 12px;
+    }
+
+    .feature-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 }
 
@@ -1638,187 +1738,383 @@ section {
 }
 
     /* How It Works */
+    .how-it-works {
+        padding: 60px 0;
+    }
+
     .steps-container {
         flex-direction: column;
-        gap: 40px;
-        margin-bottom: 60px;
+        gap: 30px;
+        margin-bottom: 40px;
+        padding: 0 10px;
     }
 
     .step-item {
         max-width: 100%;
+        padding: 20px;
+        background: var(--white);
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 16px;
+    }
+
+    .step-title {
+        font-size: 1.125rem;
+        margin-bottom: 12px;
+    }
+
+    .step-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 16px;
     }
 
     .step-arrow {
-        transform: rotate(90deg);
-        font-size: 1.25rem;
-        margin: 20px 0;
+        display: none;
     }
 
     .demo-section {
-        padding: 30px 20px;
-        margin-top: 40px;
+        padding: 30px 15px;
+        margin: 20px 10px 0;
+        border-radius: 16px;
     }
 
     .demo-title {
-        font-size: 1.75rem;
-        margin-bottom: 30px;
+        font-size: 1.5rem;
+        margin-bottom: 24px;
     }
 
     .upload-zone {
-        padding: 40px 20px;
+        padding: 30px 16px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+
+    .upload-zone i {
+        font-size: 2.25rem;
+    }
+
+    .upload-zone span {
+        font-size: 0.9rem;
     }
 
     .demo-options {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
     }
 
     .room-type-select {
         width: 100%;
         min-width: auto;
+        padding: 12px;
+        border-radius: 8px;
     }
 
     .result-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .result-item {
+        border-radius: 12px;
+    }
+
+    .result-item img {
+        height: 160px;
     }
 
     /* Gallery */
+    .gallery {
+        padding: 60px 0;
+    }
+
     .gallery-filters {
         flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 40px;
+        gap: 8px;
+        margin-bottom: 30px;
         justify-content: center;
+        padding: 0 15px;
     }
 
     .filter-btn {
-        padding: 10px 16px;
-        font-size: 0.875rem;
+        padding: 8px 12px;
+        font-size: 0.8rem;
         min-width: auto;
+        border-radius: 20px;
     }
 
     .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 40px;
+        gap: 24px;
+        margin-bottom: 30px;
+        padding: 0 10px;
     }
 
     .gallery-item {
-        margin-bottom: 20px;
+        margin-bottom: 0;
+        border-radius: 16px;
+        overflow: hidden;
     }
 
     .before-after-container {
-        height: 250px;
+        height: 220px;
+    }
+
+    .image-label {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        top: 12px;
+        left: 12px;
+    }
+
+    .gallery-info {
+        padding: 16px;
+    }
+
+    .gallery-info h4 {
+        font-size: 1.125rem;
+        margin-bottom: 6px;
+    }
+
+    .gallery-info p {
+        font-size: 0.85rem;
     }
 
     .gallery-actions {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         align-items: center;
+        padding: 0 20px;
     }
 
     /* Testimonials */
+    .testimonials {
+        padding: 60px 0;
+    }
+
     .testimonials-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
+        padding: 0 10px;
     }
 
     .testimonial-card {
-        padding: 24px;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
     .testimonial-author {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        text-align: left;
         gap: 12px;
     }
 
+    .testimonial-author img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .author-info h4 {
+        font-size: 0.95rem;
+    }
+
+    .author-info span {
+        font-size: 0.8rem;
+    }
+
     /* Pricing */
+    .pricing {
+        padding: 60px 0;
+    }
+
     .pricing-toggle {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
+    .toggle-label {
+        font-size: 0.9rem;
     }
 
     .pricing-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 60px;
+        gap: 20px;
+        margin-bottom: 40px;
+        padding: 0 10px;
     }
 
     .pricing-card {
-        padding: 30px 20px;
+        padding: 24px 20px;
+        border-radius: 16px;
     }
 
     .pricing-card.featured {
         transform: none;
-        border-width: 3px;
+        border-width: 2px;
+        margin: 10px 0;
     }
 
     .pricing-card.featured:hover {
-        transform: translateY(-4px);
+        transform: translateY(-2px);
     }
 
     .popular-badge {
-        top: -15px;
-        font-size: 0.75rem;
-        padding: 6px 16px;
+        top: -12px;
+        font-size: 0.7rem;
+        padding: 4px 12px;
+    }
+
+    .plan-name {
+        font-size: 1.25rem;
+    }
+
+    .amount {
+        font-size: 2.5rem;
+    }
+
+    .plan-description {
+        font-size: 0.9rem;
+    }
+
+    .feature-item {
+        margin-bottom: 12px;
+    }
+
+    .feature-item span {
+        font-size: 0.9rem;
     }
 
     .faq-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .faq-item h4 {
+        font-size: 1rem;
+    }
+
+    .faq-item p {
+        font-size: 0.9rem;
     }
 
     /* CTA */
     .cta {
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .cta-title {
-        font-size: 2rem;
-        margin-bottom: 16px;
+        font-size: 1.75rem;
+        margin-bottom: 12px;
+        padding: 0 15px;
     }
 
     .cta-subtitle {
-        font-size: 1.125rem;
-        margin-bottom: 30px;
+        font-size: 1rem;
+        margin-bottom: 24px;
+        padding: 0 20px;
     }
 
     .cta-actions {
         flex-direction: column;
-        gap: 16px;
-        margin-bottom: 40px;
+        gap: 12px;
+        margin-bottom: 30px;
+        padding: 0 20px;
     }
 
     .cta-stats {
         flex-direction: column;
-        gap: 24px;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .cta-stats .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .cta-stats .stat-label {
+        font-size: 0.8rem;
     }
 
     /* Footer */
     .footer {
-        padding: 60px 0 30px;
+        padding: 50px 0 25px;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        padding: 0 10px;
     }
 
     .footer-section {
+        margin-bottom: 15px;
+    }
+
+    .footer-logo {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
         margin-bottom: 20px;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
     }
 
     .footer-bottom {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
         text-align: center;
+        padding: 0 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom-links a {
+        font-size: 0.8rem;
     }
 
     .social-links {
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 15px;
+        gap: 12px;
+    }
+
+    .social-link {
+        width: 36px;
+        height: 36px;
     }
 }
 
@@ -2055,7 +2351,7 @@ section {
     transform: none !important;
 }
 
-/* Mobile-specific fixes */
+/* Mobile-specific fixes and optimizations */
 @media (max-width: 768px) {
     /* Ensure sections don't overlap */
     .hero,
@@ -2069,6 +2365,7 @@ section {
         position: relative;
         z-index: 1;
         clear: both;
+        margin-bottom: 0;
     }
 
     /* Fix any potential overflow issues */
@@ -2078,9 +2375,23 @@ section {
         overflow: hidden;
     }
 
+    /* Improve section spacing */
+    .hero {
+        margin-bottom: 0;
+    }
+
+    .features,
+    .how-it-works,
+    .gallery,
+    .testimonials,
+    .pricing {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
     /* Ensure proper spacing between elements */
     .hero-content > * {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
 
     .hero-content > *:last-child {
@@ -2097,7 +2408,7 @@ section {
     .testimonial-card,
     .pricing-card,
     .gallery-item {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         position: relative;
         z-index: 1;
     }
@@ -2105,6 +2416,7 @@ section {
     /* Fix navigation z-index */
     .navbar {
         z-index: 1000;
+        backdrop-filter: blur(10px);
     }
 
     .nav-menu.active {
@@ -2115,6 +2427,7 @@ section {
     body {
         -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
+        font-size: 16px;
     }
 
     /* Improve tap targets */
@@ -2126,6 +2439,7 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
+        touch-action: manipulation;
     }
 
     /* Fix comparison slider for touch */
@@ -2137,6 +2451,34 @@ section {
     .slider-handle {
         width: 44px;
         height: 44px;
+        touch-action: pan-x;
+    }
+
+    /* Improve form elements */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    /* Better image loading */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Improve scroll performance */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Fix viewport issues */
+    .container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 

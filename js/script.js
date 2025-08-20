@@ -353,6 +353,27 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
+function isSmallMobile() {
+    return window.innerWidth <= 480;
+}
+
+// Optimize animations for mobile
+function optimizeForMobile() {
+    if (isMobile()) {
+        // Reduce animation duration on mobile
+        document.documentElement.style.setProperty('--transition-fast', '0.1s ease-in-out');
+        document.documentElement.style.setProperty('--transition-normal', '0.2s ease-in-out');
+        document.documentElement.style.setProperty('--transition-slow', '0.3s ease-in-out');
+
+        // Disable complex animations on very small screens
+        if (isSmallMobile()) {
+            document.querySelectorAll('.floating-element').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+    }
+}
+
 // Handle window resize
 window.addEventListener('resize', () => {
     // Close mobile menu on resize
@@ -426,23 +447,44 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('input, select, textarea').forEach(element => {
             element.addEventListener('focus', () => {
                 const viewport = document.querySelector('meta[name=viewport]');
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
+                }
             });
 
             element.addEventListener('blur', () => {
                 const viewport = document.querySelector('meta[name=viewport]');
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1');
+                }
             });
         });
 
         // Adjust showcase cards for mobile
-        document.querySelectorAll('.showcase-card').forEach(card => {
-            card.style.position = 'relative';
-            card.style.width = '100%';
-            card.style.height = '200px';
-            card.style.margin = '0 0 20px 0';
-            card.style.top = 'auto';
-            card.style.left = 'auto';
-        });
+        setTimeout(() => {
+            document.querySelectorAll('.showcase-card').forEach((card, index) => {
+                card.style.position = 'relative';
+                card.style.width = '100%';
+                card.style.height = '180px';
+                card.style.margin = '0 0 16px 0';
+                card.style.top = 'auto';
+                card.style.left = 'auto';
+                card.style.transform = 'none';
+                card.style.zIndex = '1';
+            });
+        }, 100);
+
+        // Improve scroll performance
+        document.body.style.webkitOverflowScrolling = 'touch';
+
+        // Add mobile-specific classes
+        document.body.classList.add('mobile-device');
+
+        if (isSmallMobile()) {
+            document.body.classList.add('small-mobile');
+        }
     }
+
+    // Optimize for mobile
+    optimizeForMobile();
 });
