@@ -1,0 +1,66 @@
+# GitHub Pages configuration
+title: PinAura - AI Interior Design from Pinterest
+description: Transform your Pinterest home inspiration into stunning interior designs with AI
+url: "https://yourusername.github.io"
+baseurl: "/PinAura"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .gitignore
+  - node_modules/
+  - vendor/
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# SEO settings
+author: Your Name
+twitter:
+  username: yourusername
+  card: summary_large_image
+
+# Social media
+social:
+  name: PinAura
+  links:
+    - https://twitter.com/yourusername
+    - https://github.com/yourusername
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X
+
+# Compression
+sass:
+  style: compressed
+
+# Security
+safe: true
+whitelist:
+  - jekyll-sitemap
+  - jekyll-feed
