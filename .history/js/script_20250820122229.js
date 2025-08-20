@@ -23,31 +23,6 @@ const navMenu = document.getElementById('nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-
-    // Prevent body scroll when menu is open
-    if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
 });
 
 // Smooth scrolling for navigation links
@@ -348,101 +323,18 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Mobile-specific improvements
-function isMobile() {
-    return window.innerWidth <= 768;
-}
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    // Close mobile menu on resize
-    if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Adjust showcase cards on mobile
-    if (isMobile()) {
-        document.querySelectorAll('.showcase-card').forEach(card => {
-            card.style.position = 'relative';
-            card.style.width = '100%';
-            card.style.height = '200px';
-            card.style.margin = '0 0 20px 0';
-            card.style.top = 'auto';
-            card.style.left = 'auto';
-        });
-    }
-});
-
-// Improve touch interactions on mobile
-if ('ontouchstart' in window) {
-    // Add touch-friendly classes
-    document.body.classList.add('touch-device');
-
-    // Improve button interactions on touch devices
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('touchstart', () => {
-            btn.style.transform = 'scale(0.98)';
-        });
-
-        btn.addEventListener('touchend', () => {
-            btn.style.transform = 'scale(1)';
-        });
-    });
-
-    // Improve card interactions on touch devices
-    document.querySelectorAll('.feature-card, .testimonial-card, .pricing-card').forEach(card => {
-        card.addEventListener('touchstart', () => {
-            card.style.transform = 'translateY(-4px)';
-        });
-
-        card.addEventListener('touchend', () => {
-            card.style.transform = 'translateY(0)';
-        });
-    });
-}
-
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('PinAura website loaded successfully!');
-
-    // Add hover effects only for non-touch devices
-    if (!('ontouchstart' in window)) {
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                btn.style.transform = 'translateY(-2px)';
-            });
-
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translateY(0)';
-            });
+    
+    // Add some interactive hover effects
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            btn.style.transform = 'translateY(-2px)';
         });
-    }
-
-    // Fix mobile viewport issues
-    if (isMobile()) {
-        // Prevent zoom on input focus
-        document.querySelectorAll('input, select, textarea').forEach(element => {
-            element.addEventListener('focus', () => {
-                const viewport = document.querySelector('meta[name=viewport]');
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
-            });
-
-            element.addEventListener('blur', () => {
-                const viewport = document.querySelector('meta[name=viewport]');
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1');
-            });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translateY(0)';
         });
-
-        // Adjust showcase cards for mobile
-        document.querySelectorAll('.showcase-card').forEach(card => {
-            card.style.position = 'relative';
-            card.style.width = '100%';
-            card.style.height = '200px';
-            card.style.margin = '0 0 20px 0';
-            card.style.top = 'auto';
-            card.style.left = 'auto';
-        });
-    }
+    });
 });
