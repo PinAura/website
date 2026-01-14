@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - FUSE</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--space-lg);
+        }
+        .error-content h1 {
+            font-family: var(--font-serif);
+            font-size: 8rem;
+            font-weight: 400;
+            color: var(--color-accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: var(--space-md);
+        }
+        .error-content h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
+        .error-content p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+        .error-content .btn {
+            display: inline-flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav nav-scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-text">F<span class="logo-u">U</span>SE</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#download" class="nav-cta">Get the App</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="error-page">
+        <div class="error-content">
+            <h1>404</h1>
+            <h2>Page not found</h2>
+            <p>The page you're looking for doesn't exist or has been moved.</p>
+            <a href="/" class="btn btn-primary">Back to Home</a>
+        </div>
+    </main>
+</body>
+</html>
